@@ -35,7 +35,7 @@ String sex;
 String disease;
 long id;
 String dadm;
-//To take a pause
+
 private void pressAnyKeyToContinue()
  { 
         System.out.println("Press Enter key to continue...");
@@ -48,7 +48,7 @@ private void pressAnyKeyToContinue()
         System.out.println("Press 'Enter' key to continue!");
         }  
  }
- //Taking multiple words
+ 
 String readString()
 {
     Scanner scanner = new Scanner(System.in);
@@ -121,7 +121,7 @@ System.out.print("\t\t\t\t\t\t|             6  >> Exit		                        
 System.out.print("\t\t\t\t\t\t|_________________________________________________________________|\n\n");
 System.out.print("\t\t\t\t\t\tEnter your choice: ");
 k=scan.next().charAt(0);
-//if inputed choice is other than given choice
+
 switch(k)
 {
 case '1': patient();
@@ -150,14 +150,11 @@ String fileName =scan.next();
 getCurrentTimeUsingDate();  
 
         try {
-            // Assume default encoding.
+            
             FileWriter fileWriter = new FileWriter(fileName+".txt");
 
-            // Always wrap FileWriter in BufferedWriter.
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 	    
-            // Note that write() does not automatically
-            // append a newline character.
             System.out.print("\n********************************************************************\n");
             bufferedWriter.write("Date of admission: "+dadm);
             bufferedWriter.newLine();
@@ -180,8 +177,6 @@ getCurrentTimeUsingDate();
             System.out.print("\n********************************************************************\n");
             bufferedWriter.write("\n********************************************************************\n\n");
             bufferedWriter.newLine();System.out.print("\nInformation Saved Successfully\n");
-
-            // Always close files.
             bufferedWriter.close();
         }
         catch(IOException ex) 
@@ -201,13 +196,12 @@ void diagnos()
     getCurrentTimeUsingDate();
     System.out.print("\n\nEnter the patient's file name to be opened : ");
     String fileName=scan.next();
-             // This will reference one line at a time
+            
     String line = null;
     try {
-        // FileReader reads text files in the default encoding.
+        
             FileReader fileReader = new FileReader(fileName+".txt");
 
-            // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             System.out.println("\n\n\n\n\t\t\t\t........................................ Information about '"+fileName+"' ........................................\n\n\n\n");
             while((line = bufferedReader.readLine()) != null) 
@@ -215,9 +209,9 @@ void diagnos()
                 System.out.println(line);
             }   
 
-            // Always close files.
+           
             bufferedReader.close();         
-        //Appending data in file
+        
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName+".txt", true)));
             System.out.print("Adding more information in patient's file................on : "+dadm);
             out.println("Description of the day:"+dadm);
@@ -289,14 +283,12 @@ System.out.println("\t\t\t\t\t\t _______________________________________________
 System.out.println("\t\t\t\t\t\t _________________________________________________________________ ");
  System.out.print("Enter the patient's file name to get the Bill: ");
  String fileName=scan.next();
-             // This will reference one line at a time
+             
     String line = null;
     try {
-        // FileReader reads text files in the default encoding.
+        
             FileReader fileReader = new FileReader(fileName+".txt");
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName+".txt", true)));
-
-            // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             System.out.print("Date: "+dadm);
             System.out.println("\n\n\n\n\t\t\t\tDetails of the patient:\n\n\n\n");
@@ -315,7 +307,7 @@ System.out.println("\t\t\t\t\t\t _______________________________________________
              System.out.print("\n\t\t\t\t\t\tTOTAL AMOUNT:"+((wcharge*days)+doc+ser));
              out.println("Total Bill:"+((wcharge*days)+doc+ser));
              System.out.print("\n\t\t\t\t\t\t _________________________________________________________________ \n");
-            // Always close files.
+
             out.close();
             bufferedReader.close();         
         }
